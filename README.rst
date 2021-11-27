@@ -5,9 +5,7 @@ Extended `decimal time <https://en.wikipedia.org/wiki/Decimal_time>`__ (EDT).
 About
 -----
 
-I've used 1000-day long periods instead of years since childhood, so why not to extend the decimal time to have them? Look at the axioms below.
-
-This time, is simply days since POSIX zero. I realized the utility of it after creating `0oo.li/calendar <https://0oo.li/calendar/>`__, based on `detime <https://github.com/mindey/detime>`__, which squeezes months and weeks into Earth year. However, if we don't limit our selves to Earth year, we can actually get a beautiful decimal time that works: decimal representation completely coincides with the decimal representation of number of days since origin time (POSIX zero), and it makes perfect sense: it's okay to have months made of 10 weeks.
+This time, is simply days since POSIX zero, with digits before and after decimal point are grouped as (dyears, dmonths, dweeks, ddays, dhours, dminutes, dseconds).
 
 Axioms
 ======
@@ -16,7 +14,7 @@ Axioms
     * 1 dyear = 10 dmonths
     * 1 dmonth = 10 dweeks
     * 1 dweek = 10 days
-    * 1 dday = 10 dhours
+    * 1 dday = 10 dhours (86400 SI seconds)
     * 1 dhour = 100 dminutes
     * 1 dminute = 100 dseconds
 
@@ -31,7 +29,7 @@ Corollaries
 #. => 1 month is:
     * 100 days long.
 #. => 1 year is:
-    * 1000 days long
+    * 1000 days long.
 
 
 Usage
@@ -50,3 +48,10 @@ Usage
     >>> edtime.datetime(2021, 9, 30)
     edtime.edtime(dyear=18, dmonth=9, dweek=0, dday=0, dhour=0, dminute=0, dsecond=0.0)
 
+
+Background
+----------
+
+I've used 1000-day long periods instead of years since childhood, so why not to extend the decimal time to have them? Look at the axioms below.
+
+I realized the utility of it after creating `0oo.li/calendar <https://0oo.li/calendar/>`__, based on `detime <https://github.com/mindey/detime>`__, which squeezes months and weeks into Earth year. However, if we don't limit our selves to Earth year, we can actually get a beautiful decimal time that works: decimal representation completely coincides with the decimal representation of number of days since origin time (POSIX zero), and it makes perfect sense: it's okay to have months made of 10 weeks.
