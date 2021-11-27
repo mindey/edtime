@@ -29,7 +29,7 @@ Corollaries
 #. => 1 second is:
     * 0.864 standard SI seconds.
 #. => 1 month is:
-    * 100 days long, with 38 long last month on leap years.
+    * 100 days long.
 #. => 1 year is:
     * 1000 days long
 
