@@ -37,6 +37,7 @@ class Date:
 
                 if isinstance(args[0], datetime.datetime):
                     self.day = time.mktime(args[0].timetuple()) / 86400.
+                    # self.day = (time.mktime(args[0].timetuple()) + args[0].microsecond/1000000.0) / 86400.
 
                 elif isinstance(args[0], numbers.Number):
                     if isinstance(args[0], int):
@@ -50,7 +51,7 @@ class Date:
 
         self.compute_date()
 
-    def interpret_date(self, dyear=0, dmonth=0, dday=0, dhour=0, dminute=0, dsecond=0.):
+    def interpret_date(self, dyear=0, dmonth=0, dweek=0, dday=0, dhour=0, dminute=0, dsecond=0.):
         """
             Takes:
             Date properties.
@@ -76,7 +77,7 @@ class Date:
 
         self.dyear, self.dmonth, self.dweek, self.dday = int(left[:-3] or 0.), int(left[-3:-2] or 0.), int(left[-2:-1] or 0.), int(left[-1:] or 0.)
 
-        self.dhour, self.dminute, self.dsecond = int(right[:1] or 0.), int(right[1:3] or 0.), float(right[3:5] or '0' +'.'+right[5:] or '0')
+        self.dhour, self.dminute, self.dsecond = int(right[:1] or 0.), int(right[1:3] or 0.), float((right[3:5] or '0') +'.'+(right[5:] or '0'))
 
     @classmethod
     def utcnow(cls):
