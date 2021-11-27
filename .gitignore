@@ -1,0 +1,11 @@
+# Virtualenv
+.env/*
+.venv/*
+
+# Compiled python modules.
+*__pycache__*
+*.pyc
+
+dist
+edtime.egg-info/
+build/*
