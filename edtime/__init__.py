@@ -84,6 +84,9 @@ class Date:
 
         self.dhour, self.dminute, self.dsecond = int(right[:1] or 0.), int(right[1:3] or 0.), float((right[3:5] or '0') +'.'+(right[5:] or '0'))
 
+    def isoformat(self):
+        return f'{self.dyear}-{self.dmonth}-{self.dweek}-{self.dday}T{self.dhour}:{self.dminute:02d}:{self.dsecond}'
+
     def __add__(self, other):
         return Date(self.day.__add__(other.day))
 
