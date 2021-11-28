@@ -59,7 +59,10 @@ class Date:
             Sets:
             (self.day - the POSIX day)
         """
-        self.day = dyear * 1000 + dmonth * 100 + dweek * 10 + dday * 1 + dhour * 0.1 + dminute * 0.001 + dsecond * 0.00001
+        if dyear >= 0:
+            self.day = dyear * 1000 + dmonth * 100 + dweek * 10 + dday * 1 + dhour * 0.1 + dminute * 0.001 + dsecond * 0.00001
+        else:
+            self.day = dyear * 1000 - (dmonth * 100 + dweek * 10 + dday * 1 + dhour * 0.1 + dminute * 0.001 + dsecond * 0.00001)
 
     def compute_date(self):
         """
