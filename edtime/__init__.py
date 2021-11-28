@@ -30,7 +30,7 @@ class Date:
 
     """
 
-    def __init__(self, *args):
+    def __init__(self, *args, **kwargs):
         if args:
 
             if len(args) == 1:
@@ -46,6 +46,8 @@ class Date:
                         self.day = args[0]
             else:
                 self.interpret_date(*args)
+        elif kwargs:
+            self.interpret_date(**kwargs)
         else:
             self.day = 0.
 
@@ -81,6 +83,27 @@ class Date:
         self.dyear, self.dmonth, self.dweek, self.dday = int(left[:-3] or 0.), int(left[-3:-2] or 0.), int(left[-2:-1] or 0.), int(left[-1:] or 0.)
 
         self.dhour, self.dminute, self.dsecond = int(right[:1] or 0.), int(right[1:3] or 0.), float((right[3:5] or '0') +'.'+(right[5:] or '0'))
+
+    def __add__(self, other):
+        return Date(self.day.__add__(other.day))
+
+    def __sub__(self, other):
+        return Date(self.day.__sub__(other.day))
+
+    def __mul__(self, other):
+        return Date(self.day.__mul__(other.day))
+
+    def __truediv__(self, other):
+        return Date(self.day.__truediv__(other.day))
+
+    def __div__(self, other):
+        return Date(self.day.__div__(other.day))
+
+    def __floordiv__(self,other):
+        return Date(self.day.__floordiv__(other.day))
+
+    def __mod__(self,other):
+        return Date(self.day.__mod__(other.day))
 
     @classmethod
     def utcnow(cls):
