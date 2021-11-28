@@ -49,7 +49,7 @@ Usage
     edtime.edtime(dyear=18, dmonth=9, dweek=0, dday=0, dhour=0, dminute=0, dsecond=0.0)
 
     >>> edtime.utcnow().isoformat()
-    '18-9-5-9T2:24:04.4510072'
+    '18°9″5′9T2:43:43.565632'
 
 
 Background

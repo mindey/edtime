@@ -92,7 +92,7 @@ class Date:
             dsecs, dmils = ds, '0'
 
         dsecs = int(dsecs)
-        return f'{self.dyear}-{self.dmonth}-{self.dweek}-{self.dday}T{self.dhour}:{self.dminute:02d}:{dsecs:02d}.{dmils}'
+        return f'{self.dyear}°{self.dmonth}″{self.dweek}′{self.dday}T{self.dhour}:{self.dminute:02d}:{dsecs:02d}.{dmils}'
 
     def __add__(self, other):
         return Date(self.day.__add__(other.day))
