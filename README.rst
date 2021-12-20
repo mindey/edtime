@@ -12,6 +12,9 @@ Then, imagine grouping the digits of such days representation as follows:
 
 Yes, you just divide ``your UNIX seconds / 86400`` and group digits!
 
+Exmaple
+-------
+
 For example, ``2021-09-30T11:25:45Z`` would be represented as ``1633001147`` UNIX seconds, therefore:
 ``1633001147/86400 = 18900.476238425927 = 18°9″0′0T4:76:23.8425927``, meaning it is ``18th`` **dYear**, ``9th`` **dMonth**, ``0th`` **dWeek**, ``0th`` **day**, ``4th`` **dHour**, ``76th`` **dMinute**, ``23.8425927th`` **dSecond**.
 
