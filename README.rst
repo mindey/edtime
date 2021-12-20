@@ -1,7 +1,7 @@
 Decimal Time as Epoch Day (ED)
 ==============================
 
-Imagine decimal representation of days of `UNIX seconds <https://en.wikipedia.org/wiki/Unix_time>`__ - like  `JD (Julian Days) <https://en.wikipedia.org/wiki/Julian_day>`__, but starting with 1970 Jan 1, midnight, call it "Epoch Days".
+Imagine decimal representation of days of `UNIX seconds <https://en.wikipedia.org/wiki/Unix_time>`__, call it "Epoch Days".
 
 Then, imagine grouping the digits of such days representation as follows:
 
