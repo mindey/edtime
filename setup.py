@@ -5,7 +5,7 @@ with open('README.rst', 'r', encoding='utf-8') as f:
 
 setup(
     name='edtime',
-    version='0.9.9',
+    version='1.0.0',
     description="Extended Decimal Time",
     long_description=long_description,
     long_description_content_type='text/x-rst',

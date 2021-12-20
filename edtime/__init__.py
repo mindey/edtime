@@ -36,8 +36,7 @@ class Date:
             if len(args) == 1:
 
                 if isinstance(args[0], datetime.datetime):
-                    self.day = time.mktime(args[0].timetuple()) / 86400.
-                    # self.day = (time.mktime(args[0].timetuple()) + args[0].microsecond/1000000.0) / 86400.
+                    self.day = (time.mktime(args[0].timetuple()) + args[0].microsecond/1e6) / 86400.
 
                 elif isinstance(args[0], numbers.Number):
                     if isinstance(args[0], int):
@@ -112,16 +111,40 @@ class Date:
     def __floordiv__(self,other):
         return Date(self.day.__floordiv__(other.day))
 
-    def __mod__(self,other):
+    def __mod__(self, other):
         return Date(self.day.__mod__(other.day))
+
+    def __eq__(self, other):
+        return self.day == other.day
+
+    def __ne__(self, other):
+        return self.day != other.day
+
+    def __str__(self):
+        return self.isoformat()
+
+    def __float__(self):
+        return self.day
 
     @classmethod
     def utcnow(cls):
         return Date(time.time()/86400.)
 
     @classmethod
-    def datetime(cls, *args):
-        return Date(datetime.datetime(*args))
+    def datetime(cls, *args, **kwargs):
+        return Date(datetime.datetime(*args, **kwargs))
+
+    def to_datetime(self):
+        return datetime.datetime.fromtimestamp(self.day*86400.)
+
+    @classmethod
+    def from_jd(cls, jd):
+        'From Julian days (JD)'
+        return Date(jd-2440587.5)
+
+    def to_jd(self):
+        'To Julian days (JD)'
+        return self.day+2440587.5
 
     def __repr__(self):
         return f'edtime.edtime(dyear={self.dyear}, dmonth={self.dmonth}, dweek={self.dweek}, dday={self.dday}, dhour={self.dhour}, dminute={self.dminute}, dsecond={self.dsecond})'
