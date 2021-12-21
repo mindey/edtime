@@ -74,7 +74,9 @@ class Date:
             Date properties.
         """
 
-        if '.' in (day := str(self.day)):
+        day = str(self.day)
+        # if '.' in (day := str(self.day)):
+        if '.' in day:
             left, right = day.split('.', 1)
         else:
             left, right = day, ''
