@@ -72,3 +72,8 @@ Notice
     * 100 days long.
 #. => 1 ``dYear`` is:
     * 1000 days long.
+
+Use cases
+---------
+
+- https://0oo.li/calendar/ - The Infinity Family website uses this calendar in practice, planning d-weekly (=10-day long) sprints, and using the last whole digit of the epoch day as the weekday, and the remaining digits as decimal time.
